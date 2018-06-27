@@ -1,0 +1,19 @@
+image: "ruby:2.4"
+
+variables:
+  RAILS_ENV: test
+
+cache:
+  paths:
+    - vendor/ruby
+
+before_script:
+  - ruby -v
+  - apt-get update -q && apt-get install nodejs -yqq
+  - gem install bundler --no-ri --no-rdoc
+  - bundle install -j $(nproc) --path vendor
+  - bundle exec rake db:create db:schema:load db:migrate
+
+test:
+  script:
+  - bundle exec rspec spec
