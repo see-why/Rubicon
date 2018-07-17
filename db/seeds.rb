@@ -5,4 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Event.create(title: "Birthday Party", date: Date.today + 6.months)
+Event.create(title: "Birthday Party", start_time: Date.today + 6.months, end_time: Date.today + 6.months)
