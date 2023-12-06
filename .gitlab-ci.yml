@@ -1,4 +1,4 @@
-image: "ruby:2.7.2"
+image: "ruby:3.2.2"
 
 variables:
   RAILS_ENV: test
@@ -11,7 +11,8 @@ before_script:
   - ruby -v
   - apt-get update -q && apt-get install nodejs -yqq
   - gem install bundler --no-document
-  - bundle install -j $(nproc) --path vendor
+  - bundle config set --local path 'vendor/ruby'
+  - bundle install -j $(nproc)
   - bundle exec rake db:create db:schema:load db:migrate
 
 test:
