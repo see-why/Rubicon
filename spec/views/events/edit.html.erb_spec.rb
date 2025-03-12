@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe "events/edit", type: :view do
   before(:each) do
     @event = assign(:event, Event.create!(
-      :title => "MyString"
+      :title => "MyString",
+      :start_time => Time.now,
+      :end_time => Time.now + 1.hour
     ))
   end
 
