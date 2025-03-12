@@ -4,11 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event
-                .all
-                .where('start_time > ?', Time.now)
-                .sort_by(&:start_time)
-                .sort_by(&:title)
+    @events = Event.upcoming_events
   end
 
   # GET /events/1

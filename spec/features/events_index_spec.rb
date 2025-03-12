@@ -1,8 +1,8 @@
 describe 'events index' do
   it 'sorts by event start time and title combined' do
-    event_a = Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'A')
-    event_b = Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'B')
-    event_c = Event.create(start_time: Time.now + 2.days, end_time: Time.now + 2.days, title: 'A')
+    Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'A')
+    Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'B')
+    Event.create(start_time: Time.now + 2.days, end_time: Time.now + 2.days, title: 'A')
 
     visit '/'
 
@@ -12,8 +12,8 @@ describe 'events index' do
   end
 
   it 'only shows upcoming events' do
-    event_a = Event.create(start_time: Time.now - 1.day, end_time: Time.now - 1.day, title: 'A')
-    event_b = Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'B')
+    Event.create(start_time: Time.now - 1.day, end_time: Time.now - 1.day, title: 'A')
+    Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'B')
 
     visit '/'
 
