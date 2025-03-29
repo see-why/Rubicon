@@ -22,7 +22,7 @@ RSpec.describe Event, type: :model do
   it 'validate start_time < end_time' do
     event = Event.new(title: "Flash's wedding", start_time: Time.now + 1.hour, end_time: Time.now)
     event.valid?
-    expect(event.errors.full_messages).to include("Start time must be less than end time")
+    expect(event.errors.full_messages).to include("start time must be less than end time")
   end
 
   describe '.upcoming_events' do
