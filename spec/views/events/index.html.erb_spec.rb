@@ -4,10 +4,14 @@ RSpec.describe "events/index", type: :view do
   before(:each) do
     assign(:events, [
       Event.create!(
-        :title => "Title"
+        :title => "Title",
+        :start_time => Time.now,
+        :end_time => Time.now + 1.hour
       ),
       Event.create!(
-        :title => "Title"
+        :title => "Title",
+        :start_time => Time.now,
+        :end_time => Time.now + 1.hour
       )
     ])
   end
