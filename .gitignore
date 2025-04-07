@@ -27,3 +27,4 @@
 /config/master.key
 db/development.sqlite3-shm
 db/development.sqlite3-wal
+development.sqlite3
