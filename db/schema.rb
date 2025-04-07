@@ -14,10 +14,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_29_033717) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.date "date"
-    t.datetime "end_time"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "users", force: :cascade do |t|
