@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'events index' do
   it 'sorts by event start time and title combined' do
     Event.create(start_time: Time.now + 1.day, end_time: Time.now + 1.day, title: 'A')

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :event do
   task update_nil_end_time_start_time: :environment do
     # guard clause
