@@ -2,12 +2,18 @@
 class TweetCreator < ApplicationService
   attr_reader :message
 
+  RETURNS = [
+    SUCCESS = :success,
+    FAILURE = :failure,
+    MISSING_PAYLOAD = :missing_payload
+  ]
+
   def initialize(message)
     @message = message
   end
 
   def call
-    return unless @message.present?
+    return MISSING_PAYLOAD unless @message.present?
 
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = Rails.application.credentials.dig(:twitter, :api_key)
@@ -17,5 +23,9 @@ class TweetCreator < ApplicationService
     end
 
     client.update(@message)
+    SUCCESS
+  rescue => e
+    puts "TweeT failed: #{e.message}"
+    FAILURE
   end
 end
