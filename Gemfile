@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.17.0', require: false
 
 gem 'sidekiq'
 
+gem 'twitter', '~> 7.0'
+
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails', '~> 6.0.3'
